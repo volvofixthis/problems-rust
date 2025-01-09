@@ -21,12 +21,12 @@ impl Solution {
                 v
             }
         };
-        return v;
+        v
     }
 
     pub fn tribonacci(n: i32) -> i32 {
         let mut m: HashMap<i32, i32> = HashMap::new();
-        return Self::dp(n, &mut m);
+        Self::dp(n, &mut m)
     }
 }
 
