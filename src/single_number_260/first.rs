@@ -10,17 +10,17 @@ impl Solution {
             match counter.get(&v) {
                 Some(_) => {
                     counter.remove(v);
-                },
+                }
                 _ => {
                     counter.insert(*v, 1);
-                },
+                }
             };
         }
         for (v, _) in counter.into_iter() {
             r.push(v);
         }
         r.sort();
-        return r
+        return r;
     }
 }
 
@@ -30,7 +30,7 @@ mod tests {
 
     #[test]
     fn validate() {
-        let result = Solution::single_number(vec![1i32, 2,1,3,2,5]);
+        let result = Solution::single_number(vec![1i32, 2, 1, 3, 2, 5]);
         assert_eq!(result, vec![3, 5]);
     }
 }
