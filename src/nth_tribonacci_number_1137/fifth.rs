@@ -3,22 +3,26 @@ extern crate test;
 struct Solution {}
 
 impl Solution {
-    pub fn dp(n: i32, m: &mut Vec<i32>) -> i32 {
-        let i: usize = n as usize;
-        if m[i] >= 0 {
-            return m[i];
-        }
-        let v = Self::dp(n - 1, m) + Self::dp(n - 2, m) + Self::dp(n - 3, m);
-        m[i] = v;
-        v
-    }
-
     pub fn tribonacci(n: i32) -> i32 {
-        let mut m: Vec<i32> = vec![-1i32; n as usize + 1];
-        m[0] = 0;
-        m[1] = 1;
-        m[2] = 1;
-        Self::dp(n, &mut m)
+        let mut a = 0;
+        let mut b = 1;
+        let mut c = 1;
+        if n == 0 {
+            return a;
+        }
+        if n == 1 {
+            return b;
+        }
+        if n == 2 {
+            return c;
+        }
+        for _ in 2..n {
+            let v = a + b + c;
+            a = b;
+            b = c;
+            c = v;
+        }
+        c
     }
 }
 

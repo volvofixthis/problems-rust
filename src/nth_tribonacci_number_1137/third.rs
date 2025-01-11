@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+extern crate test;
 
 struct Solution {}
 
@@ -33,6 +34,7 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use test::Bencher;
 
     #[test]
     fn validate() {
@@ -40,5 +42,10 @@ mod tests {
         let o1 = 4;
         let result = Solution::tribonacci(i1);
         assert_eq!(result, o1);
+    }
+
+    #[bench]
+    fn bench(b: &mut Bencher) {
+        b.iter(|| Solution::tribonacci(20i32));
     }
 }
